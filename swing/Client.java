@@ -8,7 +8,7 @@ import java.net.*;
 
 public class Client
 {
-  private static final long serialVersionUID = 1L;
+ 
   static final String DEFAULT_HOST = "localhost";
   static final int DEFAULT_PORT = 3331;
   private Socket sock;
@@ -22,6 +22,8 @@ public class Client
   /// recupere sa reponse et l'affiche sur le Terminal.
   /// Noter que le programme bloque si le serveur ne repond pas.
   ///
+
+  /* 
   public static void main(String argv[]) {
     String host = DEFAULT_HOST;
     int port = DEFAULT_PORT;
@@ -55,7 +57,7 @@ public class Client
         return;
       }
     }
-  }
+  }*/
 
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -63,16 +65,16 @@ public class Client
   /// Initialise la connexion.
   /// Renvoie une exception en cas d'erreur.
   ///
-  public Client(String host, int port) throws UnknownHostException, IOException {
+  public Client() throws UnknownHostException, IOException {
     try {
-      sock = new java.net.Socket(host, port);
+      sock = new java.net.Socket(DEFAULT_HOST, DEFAULT_PORT);
     }
     catch (java.net.UnknownHostException e) {
-      System.err.println("Client: Couldn't find host "+host+":"+port);
+      System.err.println("Client: Couldn't find host " + DEFAULT_HOST+":"+DEFAULT_PORT);
       throw e;
     }
     catch (java.io.IOException e) {
-      System.err.println("Client: Couldn't reach host "+host+":"+port);
+      System.err.println("Client: Couldn't reach host "+DEFAULT_HOST+":"+DEFAULT_HOST);
       throw e;
     }
     
