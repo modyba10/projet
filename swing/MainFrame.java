@@ -19,9 +19,11 @@ public class MainFrame extends JFrame {
         int width = (int) (screenSize.getWidth() * 0.6);
         int height = (int) (screenSize.getHeight() * 0.6);
         controller.setPreferredSize(new Dimension(width, height));
+        
 
         add(controller, BorderLayout.CENTER);
         pack();
+        
         setLocationRelativeTo(null);
         setVisible(true);
     }

@@ -23,7 +23,7 @@ public class BrowseButton extends JButton implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         JFileChooser fileChooser = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("Media Files", "jpg", "png", "gif", "mp4", "avi");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Media Files", "jpg", "png", "gif", "mp4");
         fileChooser.setFileFilter(filter);
 
         int returnValue = fileChooser.showOpenDialog(null);
@@ -55,11 +55,11 @@ public class BrowseButton extends JButton implements ActionListener {
     }
 
     private void sendToServer(String filePath, String fileName, int mediaType) {
-        // Vérification que l'instance de client existe
+        
 
         if (client != null) {
 
-            // Construction du message à envoyer
+            
 
             String message = filePath + ";" + fileName + ";" + mediaType;
 
@@ -67,20 +67,18 @@ public class BrowseButton extends JButton implements ActionListener {
 
             String response = client.send(message);
 
-            // Gestion de la réponse du serveur si nécessaire
-            // (par exemple, affichage ou traitement supplémentaire)
-
+           
 
             if (response != null) {
                 System.out.println("Server response: " + response);
-                // Gérer la réponse du serveur ici si nécessaire
+               
             } else {
                 System.out.println("No response from server.");
-                // Gérer l'absence de réponse du serveur ici si nécessaire
+                
             }
         } else {
             System.out.println("Client instance is null.");
-            // Gérer le cas où l'instance de client est nulle (non initialisée) ici si nécessaire
+            
         }
     }
     
